@@ -6,7 +6,7 @@ const LorBot = () => {
                 <br />
                 I've always enjoyed automating tasks and I believe  it is the right
                 mindset to have and leads to a lot of great optimizations. So I decided
-                to make a bot for a card game Legends of Runeterra.
+                to make a bot for the Legends of Runeterra card game.
             </p>
             <br />
             <h5>Technical Details</h5>

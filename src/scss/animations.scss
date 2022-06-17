@@ -1,15 +1,16 @@
 @mixin animate($val) {
 	animation: $val;
-	-moz-animation: $val;  
+	-moz-animation: $val;
 	-webkit-animation: $val;
 	-o-animation: $val;
-	-ms-animation: $val;  
+	-ms-animation: $val;
 }
 
 @keyframes fade-in {
 	from {
 		opacity: 0;
 	}
+
 	to {
 		opacity: 1;
 	}
@@ -19,6 +20,7 @@
 	from {
 		opacity: 1;
 	}
+
 	to {
 		opacity: 0;
 	}
@@ -29,6 +31,7 @@
 		opacity: 0;
 		transform: translateY(4rem);
 	}
+
 	100% {
 		opacity: 1;
 		transform: translateY(3rem);
@@ -81,6 +84,7 @@
 	50% {
 		transform: translateY(-0.6rem);
 	}
+
 	100% {
 		transform: translateY(-0.6rem) rotate(-45deg);
 	}

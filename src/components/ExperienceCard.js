@@ -7,7 +7,10 @@ const ExperienceCard = ({ experience }) => {
                 <div className="horizontal_card_header">
                     <div className="horizontal_card_icon">
                         <div className="horizontal_card_img_cover">
-                            <img alt={experience.company} src={experience.icon_url} />
+                            <a target="_blank" rel="noopener noreferrer"
+                                href={experience.company_url}>
+                                <img alt={experience.company} src={experience.icon_url} />
+                            </a>
                         </div>
                     </div>
                     <div className="horizontal_card_info">

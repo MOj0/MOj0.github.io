@@ -20,7 +20,8 @@ const SocialLinks = () => {
                     </a>
                 </li>
             </ul>
-        </div>)
+        </div>
+    )
 }
 
 export default SocialLinks;

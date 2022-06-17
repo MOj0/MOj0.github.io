@@ -25,7 +25,7 @@ export const PROJECT_LIST =
         },
         {
             name: "Legends of Runeterra Bot",
-            description: "Bot for a card game Legends of Runeterra",
+            description: "Bot for the Legends of Runeterra card game",
             url: "https://github.com/MOj0/LoR-Bot",
             technologies: ["Python", "Computer Vision", "Automation"],
             owner: "MOj0",
@@ -123,7 +123,7 @@ export const PROJECT_LIST =
         },
         {
             name: "Pocket Tanks",
-            description: "A remake of the Pocket Tanks videogame, which also supports LAN Multiplayer",
+            description: "A remake of the Pocket Tanks videogame",
             url: "https://github.com/MOj0/Pocket-Tanks",
             technologies: [],
             owner: "MOj0",

@@ -104,6 +104,22 @@
 	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
+@media (prefers-reduced-motion: no-preference) {
+	.home-profile:hover {
+		animation: home-profile-spin infinite 3s cubic-bezier(0.25, 0.46, 0.65, 1);
+	}
+}
+
+@keyframes home-profile-spin {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+
 .languages-list {
 	align-items: flex-start;
 	display: flex;
@@ -129,5 +145,36 @@
 		margin: 0rem 0.2rem 0.6rem 0.2rem;
 		transition: 500ms ease;
 		white-space: nowrap;
+	}
+}
+
+
+.social_links_vertical {
+	transition: 400s;
+	a {
+		color: $fg-1;
+		font-size: 2.5rem;
+		transition: 0.3s;
+		&:hover {
+			color: $accent-2;
+		}
+	}
+	ul {
+		list-style-type: none;
+	}
+	li {
+		display: block;
+		margin: 3rem;
+	}
+}
+
+.social-icon {
+	color: inherit;
+	transition: 0.7s;
+	&:hover &:visited:hover {
+		color: $accent-2;
+	}
+	&:visited {
+		color: inherit;
 	}
 }
