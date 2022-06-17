@@ -2,13 +2,14 @@ const JsP5 = () => {
     return (
         <div>
             <p>
-                These are just random, old projects I messed around with.
+                These are the projects I made when I was still learning Javascript. I've been very
+                inspired by <a href="https://www.youtube.com/c/TheCodingTrain">The Coding Train</a> on youtube,
+                where I first saw the <code>p5.js</code> library.
+                I feel like I learned the basic of the language quite well with those projects.
                 <br />
-                Here is a demo video:
-                <video width="1000" controls>
-                    <source src="../assets/js_demo.mp4" type="video/mp4" />
-                    Your browser does not support HTML video.
-                </video>
+                Here is an exmaple of one of the projects: Ray Marching
+                <br/>
+                <img src="https://user-images.githubusercontent.com/59799831/174346459-17c6e109-01f5-4ff0-9999-1883d5001072.gif"></img>
             </p>
         </div>
     )

@@ -2,11 +2,15 @@ const Connect4 = () => {
     return (
         <div>
             <p>
-                This is my first larger project in Java.
+                This was my first larger project in Java.
                 <br/>
-                I also implemented play through the Local Area Network.
-                Here is a screenshot of the game:
-                <img src="https://user-images.githubusercontent.com/59799831/174165515-0045b554-1a25-4f2f-a455-5277285090d9.png"></img>
+                It is the classic table game Connect 4. I made a simple bot, where instead of using the 
+                <a target="_blank" href="https://en.wikipedia.org/wiki/Minimax"> Minimax algorithm</a> I added or subtracted a score from the bot, based
+                on where he placed the token according to the current game state. I remember there being a lot of edge cases, and it
+                was quite messy, but it worked surprisigly well (not as well as Minimax though).
+                <br/>
+                I also implemented play through the Local Area Network, where each player simply sends the column where they placed the
+                token as an integer over the network.
             </p>
         </div>
     )

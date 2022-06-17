@@ -1,9 +1,16 @@
-import "../src/scss/header.scss";
+import "../scss/header.scss";
+import "../scss/home.scss";
+
 const Header = () => {
-    <header className="header">
-        <nav className="topnav">
-        </nav>
-    </header>
+    return (
+        <header className="header">
+            <nav className="topnav">
+                <div className="logo-link">
+                    <a href="/">Mojo</a>
+                </div>
+            </nav>
+        </header>
+    )
 };
 
 export default Header;

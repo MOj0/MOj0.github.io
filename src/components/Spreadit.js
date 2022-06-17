@@ -11,11 +11,12 @@ const Spreadit = () => {
                 environement and connect to it through the backend. I also learned how to properly
                 store information about users (mainly passwords), authenticate and authorize them.
                 <br/>
-                Lastly, we created an Android app which uses the same backend API, or in other words,
-                only the view changed.
+                Lastly, we created an Android app which uses the same backend API, so funcionality stays the same,
+                only the view changes.
                 <br/>
-                We were both very happy, since we created a fully functional web (and mobile) application.
-                <a href="http://spre4dit.azurewebsites.net/">Here</a> is the link if you want to check it out.
+                We were both very happy with the result, since we created a fully functional web (and mobile) application.
+                <br/>
+                Link to the webapp <a target="_blank" href="http://spre4dit.azurewebsites.net/">here</a>.
             </p>
         </div>
     )

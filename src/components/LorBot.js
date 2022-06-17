@@ -24,9 +24,9 @@ const LorBot = () => {
             </p>
             <br />
             <h5>Conclusion</h5>
-            <p>The bot is not perfect, it is quite limited in its strategy and only works at a specific resolution,
-                but it works and I am quite proud of it. It may not be the most useful bot, but I had a lot of fun
-                making it, which is the most important part. :D
+            <p>The bot is not perfect, it is quite limited in terms of its playstyle (can only play 3 decks effectively) and only
+                works at a specific resolution, but it works and I am quite proud of it. It may not be the most useful bot,
+                but I had a lot of fun making it, which is the most important part. :D
             </p>
         </div>
     )
