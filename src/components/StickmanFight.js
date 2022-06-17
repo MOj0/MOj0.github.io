@@ -13,8 +13,8 @@ const StickmanFight = () => {
                 but it was really exciting and enlightening. Beside the technical part, another important
                 lesson I learned was, when making things from scratch there is a lot more to do, than you initially think.
                 <br />
-                If you wish to read more about the project
-                <a href="https://github.com/MOj0/Stickman_Fight/blob/d2177f96a75972057d5b7a134dcdd8873ef3a5a9/docs/Porocilo.pdf">here</a>
+                If you wish to read more about the project    
+                <a href="https://github.com/MOj0/Stickman_Fight/blob/d2177f96a75972057d5b7a134dcdd8873ef3a5a9/docs/Porocilo.pdf"> here </a> 
                 is a PDF (it's in Slovene).
             </p>
         </div>

@@ -6,6 +6,7 @@ import FarmManagement from "./components/FarmManagement";
 import LunarLander from "./components/LunarLaner";
 import PocketTanks from "./components/PocketTanks";
 import Connect4 from "./components/Connect4";
+import Spreadit from "./components/Spreadit";
 
 
 export const PROJECT_LIST =
@@ -44,7 +45,7 @@ export const PROJECT_LIST =
             name: "Analysis and prediction of parking spots in Ljubljana",
             description: "[Data Mining class]",
             url: "https://github.com/MOj0/PR21MOJR",
-            technologies: ["Python", "Time Series Models (SARIMAX)"],
+            technologies: ["Python", "Time Series Models"],
             owner: "Mojo",
             repo_name: "PR21MOJR",
             preview_url: "https://user-images.githubusercontent.com/59799831/174149924-b378349a-2a90-4f06-9ee0-d04972ba3f69.png",
@@ -55,6 +56,22 @@ export const PROJECT_LIST =
                 "Time Series Prediction",
             ],
             content: DataAnalysis,
+        },
+        {
+            name: "Spreadit",
+            description: "A reddit clone [Infomation Systems class]",
+            url: "http://spre4dit.azurewebsites.net/",
+            technologies: ["C#", ".NET 6", "Android App"],
+            owner: "Gnortss",
+            repo_name: "spreadit",
+            preview_url: "https://user-images.githubusercontent.com/59799831/149286223-e938b251-c107-44cf-a861-ae4f7ee6355c.png",
+            preview_thumbnail_url: "https://user-images.githubusercontent.com/59799831/149286223-e938b251-c107-44cf-a861-ae4f7ee6355c.png",
+            tags: [
+                "C#",
+                ".NET 6",
+                "Mobile Development",
+            ],
+            content: Spreadit,
         },
         {
             name: "Javascript p5 Visualization Projects",

@@ -1,44 +1,22 @@
 import './App.css';
-import { BrowserRouter } from "react-router-dom"
-import HomeHeader from './components/HomeHeader';
-import Footer from "./components/Footer"
-import ExperienceList from "./components/ExperienceList"
-import ProjectList from "./components/ProjectList"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import "../src/scss/base.scss";
 import "../src/scss/home.scss";
 import "../src/scss/link.scss";
-import { EXPERIENCE_LIST, PROJECT_LIST } from "./constants";
+import Home from "./components/Home"
+import Project from './components/Project';
+import NotFound from './components/NotFound';
+
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="base">
-        <HomeHeader />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/project/:id" element={<Project />} />
 
-        <div className="home-section">
-          <div style={{ width: '100%' }}>
-            <a className="link" href="/#projects">
-              <h2 id="projects">Projects</h2>
-            </a>
-            <div>
-              <ProjectList list={PROJECT_LIST} />
-            </div>
-          </div>
-        </div>
-
-        <div className="home-section">
-          <div style={{ width: '100%' }}>
-            <a className="link" href="/#experiences">
-              <h2 id="experiences">Experiences</h2>
-            </a>
-            <div>
-              <ExperienceList list={EXPERIENCE_LIST} />
-            </div>
-          </div>
-        </div>
-
-        <Footer />
-      </div>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </BrowserRouter>
   );
 }
