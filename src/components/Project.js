@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { PROJECT_LIST } from "../constants";
 import NotFound from "./NotFound";
-import PageTemplate from "./PageTemplate";
 import "../scss/article.scss";
 import ProjectHeader from "./ProjectHeader";
 import Footer from "./Footer";
