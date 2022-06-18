@@ -59,7 +59,7 @@ export const PROJECT_LIST =
         },
         {
             name: "Spreadit",
-            description: "A reddit clone [Infomation Systems class]",
+            description: "A reddit clone [Information Systems class]",
             url: "http://spre4dit.azurewebsites.net/",
             technologies: ["C#", ".NET 6", "Android App"],
             owner: "Gnortss",
