@@ -156,6 +156,17 @@ export const PROJECT_LIST =
 export const EXPERIENCE_LIST =
     [
         {
+            title: "Software Development",
+            company: "DevRev",
+            company_url: "https://devrev.ai/",
+            start_date: "Jul 2022",
+            end_date: "Present",
+            icon_url: "https://avatars.githubusercontent.com/u/72990475?s=120&v=4",
+            tags: [
+                "Golang", "CRM", "CLI Tools", "AWS"
+            ],
+        },
+        {
             title: "Technical Documentation",
             company: "Luxonis",
             company_url: "https://www.luxonis.com/",
