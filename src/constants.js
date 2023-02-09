@@ -2,15 +2,26 @@ import LorBot from "./components/LorBot";
 import StickmanFight from "./components/StickmanFight";
 import DataAnalysis from "./components/DataAnalysis";
 import JsP5 from "./components/JsP5";
-import FarmManagement from "./components/FarmManagement";
 import LunarLander from "./components/LunarLaner";
 import PocketTanks from "./components/PocketTanks";
-import Connect4 from "./components/Connect4";
 import Spreadit from "./components/Spreadit";
+import UltimateNinja from "./components/UltimateNinja";
 
 
 export const PROJECT_LIST =
     [
+        {
+            name: "Ultimate Ninja",
+            description: "Stealth action game",
+            url: "https://github.com/MOj0/ultimate_ninja",
+            technologies: ["Rust", "good-web-game", "reqwest lib", "threading"],
+            owner: "MOj0",
+            repo_name: " ultimate_ninja",
+            preview_url: "https://user-images.githubusercontent.com/59799831/217947763-e8942f66-81b9-4671-992a-72d964e5425f.gif",
+            preview_thumbnail_url: "https://user-images.githubusercontent.com/59799831/217947763-e8942f66-81b9-4671-992a-72d964e5425f.gif",
+            tags: ["Rust", "Game Development", "2D"],
+            content: UltimateNinja,
+        },
         {
             name: "Stickman Fight",
             description: "Online multiplayer 3D game [Computer Graphics class]",
@@ -60,7 +71,7 @@ export const PROJECT_LIST =
         {
             name: "Spreadit",
             description: "A reddit clone [Information Systems class]",
-            url: "http://spre4dit.azurewebsites.net/",
+            url: "https://github.com/Gnortss/spreadit",
             technologies: ["C#", ".NET 6", "Android App"],
             owner: "Gnortss",
             repo_name: "spreadit",
@@ -91,22 +102,6 @@ export const PROJECT_LIST =
             content: JsP5,
         },
         {
-            name: "Farm Management",
-            description: "Android app that helps you organize your farm",
-            url: "https://github.com/MOj0/FarmManagement",
-            technologies: [],
-            owner: "MOj0",
-            repo_name: "FarmManagement",
-            preview_url: "https://cdn.discordapp.com/attachments/897553978135572540/917165361202364436/unknown.png",
-            preview_thumbnail_url: "https://cdn.discordapp.com/attachments/897553978135572540/917165361202364436/unknown.png",
-            tags: [
-                "Java",
-                "Android Studio",
-                "Mobile Development",
-            ],
-            content: FarmManagement,
-        },
-        {
             name: "Lunar Lander",
             description: "A remake of the Lunar Lander Atari game",
             url: "https://github.com/MOj0/LunarLander",
@@ -135,21 +130,6 @@ export const PROJECT_LIST =
                 "Game Development",
             ],
             content: PocketTanks,
-        },
-        {
-            name: "Connect 4",
-            description: "The table game Connect 4 made in Java",
-            url: "https://github.com/MOj0/Connect-4",
-            technologies: [],
-            owner: "MOj0",
-            repo_name: "Connect-4",
-            preview_url: "https://user-images.githubusercontent.com/59799831/174165515-0045b554-1a25-4f2f-a455-5277285090d9.png",
-            preview_thumbnail_url: "https://user-images.githubusercontent.com/59799831/174165515-0045b554-1a25-4f2f-a455-5277285090d9.png",
-            tags: [
-                "Java",
-                "Game Development",
-            ],
-            content: Connect4,
         },
     ];
 

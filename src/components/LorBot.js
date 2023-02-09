@@ -2,7 +2,7 @@ const LorBot = () => {
     return (
         <div>
             <p>This project was initially made for fun,
-                but I thought some people might find it interesting.
+                but I thought some people might find it interesting, so I decided to publish it.
                 <br />
                 I've always enjoyed automating tasks and I believe  it is the right
                 mindset to have and leads to a lot of great optimizations. So I decided
