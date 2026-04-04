@@ -1,3 +1,11 @@
 # Portfolio website
 
-This is my personal website available [here](https://moj0.github.io/).
+## Requirements
+
+- `nodejs`
+
+Install any missing dependencies with `npm install`.
+
+### Running the app locally
+
+`npm run start`

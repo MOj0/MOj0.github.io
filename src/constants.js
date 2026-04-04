@@ -6,10 +6,23 @@ import LunarLander from "./components/LunarLaner";
 import PocketTanks from "./components/PocketTanks";
 import Spreadit from "./components/Spreadit";
 import UltimateNinja from "./components/UltimateNinja";
+import Crossequa from "./components/Crossequa";
 
 
 export const PROJECT_LIST =
     [
+        {
+            name: "Crossequa",
+            description: "Crosswords game with equations",
+            url: "https://github.com/SurfingNerd/crossequa",
+            technologies: ["Rust", "Bevy"],
+            owner: "SurfingNerd",
+            repo_name: " crossequa",
+            preview_url: "https://img.itch.zone/aW1hZ2UvMzU1MDI3NS8yMTE0MDY0MS5wbmc=/original/DpSkgr.png",
+            preview_thumbnail_url: "https://img.itch.zone/aW1hZ2UvMzU1MDI3NS8yMTE0MDY0MS5wbmc=/original/DpSkgr.png",
+            tags: ["Rust", "Game Development", "2D"],
+            content: Crossequa,
+        },
         {
             name: "Ultimate Ninja",
             description: "Stealth action game",
@@ -140,7 +153,7 @@ export const EXPERIENCE_LIST =
             company: "DevRev",
             company_url: "https://devrev.ai/",
             start_date: "Jul 2022",
-            end_date: "Present",
+            end_date: "Apr 2026",
             icon_url: "https://avatars.githubusercontent.com/u/72990475?s=120&v=4",
             tags: [
                 "Golang", "CRM", "CLI Tools", "AWS"
