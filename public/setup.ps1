@@ -1,11 +1,3 @@
-function Invocation {
-	irm -Uri https://moj0.github.io/setup.ps1 | iex
-}
-
-function Test{
-	Write-Output "foo"
-}
-
 function Win-Util {
 	$ConfigUrl = "https://moj0.github.io/winutil_config.json"
 	$ConfigFile = Join-Path $env:TEMP "winutil.json"
@@ -49,9 +41,8 @@ function Configure-Registry {
 		-Force
 }
 
-Test
-# Win-Util
-# Install-Scoop
-# Install-Tools
-# Configure-Clink
-# Configure-Registry
+Win-Util
+Install-Scoop
+Install-Tools
+Configure-Clink
+Configure-Registry
