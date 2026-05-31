@@ -1,0 +1,97 @@
+{
+	"Version": 1,
+	"Layouts": [
+		{
+			"Name": "Mojo",
+			"WindowX": 208,
+			"WindowY": 208,
+			"WindowWidth": 1024,
+			"WindowHeight": 768,
+			"WindowMaximized": true,
+			"QuickAccessWidth": 238,
+			"QuickAccessClosed": false,
+			"QuickAccessShowPaths": false,
+			"QuickAccessGroups": [
+				{ "Name": "Recents", "IsClosed": true, "SortIndex": 3 },
+				{ "Name": "Bookmarks", "IsClosed": false, "SortIndex": 0 },
+				{ "Name": "Storage", "IsClosed": false, "SortIndex": 2 },
+				{ "Name": "Places", "IsClosed": false, "SortIndex": 1 }
+			],
+			"GotoGroups": [
+				{ "Name": "Recents", "IsClosed": false, "SortIndex": 3 },
+				{ "Name": "Bookmarks", "IsClosed": false, "SortIndex": 0 },
+				{ "Name": "Storage", "IsClosed": false, "SortIndex": 2 },
+				{ "Name": "Places", "IsClosed": false, "SortIndex": 1 }
+			],
+			"ClosedCmdGroups": ["Folder", "View", "Sort", "Inspector", "Panels", "Tabs", "GoTo", "Misc", "Options", "Rename", "Text", "Scroll"],
+			"CommandsHideDetails": false,
+			"OptionsHideDetails": false,
+			"ShowAllRecents": false,
+			"Panels": [
+				{ "ID": 1, "SplitRatio": 0.000000, "Path": "C:/Users/Matija", "Expanded": false, "Hidden": false, "SortedBy": 17, "FolderSort": "FoldersFirst", "FilterSticky": false, "HideFiles": false, "HideDirs": false, "ZoomLevel": 0.000000, "Columns": [{"Kind": 0, "SplitRatio": 0.450000}, {"Kind": 1, "SplitRatio": 0.150000}, {"Kind": 5, "SplitRatio": 0.150000}, {"Kind": 3, "SplitRatio": 0.150000}, {"Kind": 2, "SplitRatio": 0.100000}], "InspectorSplitRatio": 0.395598, "InspectorLayout": 0, "InspectorDetails": false, "InspectorDetailsExtra": false, "InspectorWordWrap": false, "InspectorHideLineNumbers": false, "InspectorShowWhitespace": false, "InspectorHideGrid": false, "InspectorHideMinimap": false, "InspectorSortedBy": 3, "InspectorFolderSort": "FoldersFirst", "InspectorZoomLevel": 0.000000, "InspectorColumns": [{"Kind": 0, "SplitRatio": 0.450000}, {"Kind": 1, "SplitRatio": 0.150000}, {"Kind": 5, "SplitRatio": 0.150000}, {"Kind": 3, "SplitRatio": 0.150000}, {"Kind": 2, "SplitRatio": 0.100000}] }
+			],
+			"SelectedPanel": 1
+		}
+	],
+	"Folders": [
+	],
+	"Recents": [
+		{ "Path": "C:/Users/Matija/AppData/Roaming/Voidstar", "Score": 10, "Decay": 0, "Ordinal": 179, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija/AppData/Roaming/Voidstar/FilePilot", "Score": 10, "Decay": 0, "Ordinal": 178, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija", "Score": 10, "Decay": 0, "Ordinal": 177, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija/Downloads", "Score": 10, "Decay": 0, "Ordinal": 167, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija/Pictures", "Score": 10, "Decay": 2, "Ordinal": 162, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija/Music", "Score": 10, "Decay": 3, "Ordinal": 161, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/$Recycle.Bin", "Score": 10, "Decay": 0, "Ordinal": 158, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:", "Score": 10, "Decay": 2, "Ordinal": 138, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija/AppData/Roaming/Voidstar/FilePilot/FPilot-Config.json", "Score": 10, "Decay": 0, "Ordinal": 129, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija/AppData/Local/Voidstar/FilePilot/FPilot-Session.json", "Score": 10, "Decay": 0, "Ordinal": 123, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "Root", "Score": 10, "Decay": 3, "Ordinal": 106 },
+		{ "Path": "C:/Users", "Score": 10, "Decay": 4, "Ordinal": 70, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija/Downloads/DMZ White", "Score": 9, "Decay": 0, "Ordinal": 155, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija/AppData/Roaming", "Score": 9, "Decay": 0, "Ordinal": 100, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "D:/key.txt", "Score": 6, "Decay": 0, "Ordinal": 173, "DriveSerial": 639309786 },
+		{ "Path": "C:/Users/Matija/Videos", "Score": 6, "Decay": 5, "Ordinal": 159, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija/Favorites", "Score": 6, "Decay": 6, "Ordinal": 157, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija/scoop/apps/clink/1.9.25/clink.lua", "Score": 6, "Decay": 0, "Ordinal": 50, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "D:/backgrounds", "Score": 3, "Decay": 2, "Ordinal": 171, "DriveSerial": 639309786 },
+		{ "Path": "D:", "Score": 3, "Decay": 0, "Ordinal": 170, "DriveSerial": 639309786 },
+		{ "Path": "E:", "Score": 3, "Decay": 1, "Ordinal": 169, "DriveSerial": 1604580058 },
+		{ "Path": "C:/Users/Matija/Documents", "Score": 3, "Decay": 9, "Ordinal": 149, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija/Downloads/DMZ White/Alternate Select.cur", "Score": 3, "Decay": 0, "Ordinal": 140, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija/AppData/Local/Voidstar/FilePilot", "Score": 3, "Decay": 0, "Ordinal": 77, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Program Files/Blender Foundation/Blender 5.1", "Score": 3, "Decay": 0, "Ordinal": 60, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija/AppData/Local/Blender Foundation/Blender", "Score": 3, "Decay": 0, "Ordinal": 59, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija/scoop/shims", "Score": 3, "Decay": 0, "Ordinal": 47, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija/Pictures/Dark-Souls-3-Archdragon-Peak-Arena.jpg", "Score": 3, "Decay": 0, "Ordinal": 45, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Intel", "Score": 3, "Decay": 9, "Ordinal": 30, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Program Files (x86)", "Score": 3, "Decay": 10, "Ordinal": 28, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija/Downloads/FPilot.exe", "Score": 3, "Decay": 3, "Ordinal": 19, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija/AppData", "Score": 0, "Decay": 10, "Ordinal": 99, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija/scoop", "Score": 0, "Decay": 10, "Ordinal": 76, "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija/Desktop", "Score": 0, "Decay": 10, "Ordinal": 57, "DriveFixed": true, "DriveSerial": 2451823634 }
+	],
+	"PathBookmarks": [
+		{ "Path": "C:/Users/Matija", "DriveFixed": true, "DriveSerial": 2451823634 },
+		{ "Path": "C:/Users/Matija/AppData/Roaming/Voidstar/FilePilot", "DriveFixed": true, "DriveSerial": 2451823634 }
+	],
+	"CommandBookmarks": [
+		"HK_ToggleExpandFolder",
+		"HK_InspectorToggle",
+		"HK_PanelSplitRight",
+		"HK_PanelSplitBottom",
+		"HK_TabNew",
+		"HK_TabClose",
+		"HK_OptionsOpen",
+		"HK_ExplorerOpen",
+		"HK_ConsoleOpen",
+		"HK_ToggleFileExtension",
+		"HK_ToggleHiddenFiles",
+		"HK_ToggleSystemFiles",
+		"HK_ToggleRecents",
+		"HK_ToggleSortRecents"
+	],
+	"ContextMenuBookmarks": [
+	],
+	"InstallerPresentedVersion": "v0.7.0"
+}

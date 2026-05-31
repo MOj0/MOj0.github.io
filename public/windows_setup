@@ -1,0 +1,161 @@
+function Download-File($filename) {
+	$ConfigUrl = "https://moj0.github.io/$filename"
+	$FilePath = Join-Path $env:TEMP $filename
+	
+	Invoke-WebRequest $ConfigUrl -OutFile $FilePath
+	
+	return $FilePath;
+}
+
+function Download-Config-File($configFile) {
+	return Download-File("configs/$configFile");
+}
+
+
+function Win-Util {
+	$ConfigFile = Download-Config-File("winutil_config.json")
+	
+	& ([ScriptBlock]::Create((irm "https://christitus.com/win"))) -Config $ConfigFile -NoUI
+}
+
+
+function Execute-OOShutUp10 {
+    <#
+    .SYNOPSIS
+        Downloads and runs OO Shutup 10 with my custom config
+    #>
+    try {
+		$ConfigFile = Download-Config-File("ooshutup10.cfg")
+	
+		Write-Host "Downloading OO Shutup 10 ..."
+        $OOSU_filepath = Join-Path $env:temp "\OOSU10.exe"
+        
+		$Initial_ProgressPreference = $ProgressPreference
+        $ProgressPreference = "SilentlyContinue" # Disables the Progress Bar to drasticly speed up Invoke-WebRequest
+        Invoke-WebRequest -Uri "https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe" -OutFile $OOSU_filepath
+		
+        Write-Host "Executing OO Shutup 10 with config $ConfigFile"
+        Start-Process $OOSU_filepath $ConfigFile
+        Write-Host "Successfully applied OO Shutup 10 config!" -ForegroundColor Green
+    } catch {
+        Write-Host "Error Downloading and Running OO Shutup 10" -ForegroundColor Red
+    }
+    finally {
+        $ProgressPreference = $Initial_ProgressPreference
+    }
+}
+
+
+function Install-Scoop {
+	Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+	Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+}
+
+
+function Install-Tools {
+    scoop bucket add nerd-fonts
+	scoop bucket add extras
+
+	scoop install clink
+	scoop install firacode
+	scoop install extras/godot-mono
+
+	winget install Microsof	t.DotNet.SDK.10
+	winget install -e --id Voidstar.FilePilot
+	winget install winsetview
+}
+
+# There is a missing Windows App Runtime v1.8 when starting the *new* keyboard shortcut editor... we will use the powertoys bundled with winutil
+#function Install-PowerToys {
+#	#scoop install extras/powertoys
+#	#Invoke-Expression -Command "& `"$env:USERPROFILE\scoop\apps\powertoys\current\install-context.ps1`""
+#	#winget install Microsoft.DotNet.SDK.10
+#	#dotnet tool install wix --global
+#	
+#	$PowerToysSetupPath = Join-Path $env:TEMP "PowerToysSetup.exe"
+#	$PowerToysSetupWixPath = Join-Path $env:TEMP "PowerToysSetup"
+#	
+#	$Initial_ProgressPreference = $ProgressPreference
+#	$ProgressPreference = "SilentlyContinue" # Disables the Progress Bar to drasticly speed up Invoke-WebRequest
+#	Invoke-WebRequest "https://github.com/microsoft/PowerToys/releases/download/v0.99.1/PowerToysSetup-0.99.1-x64.exe" -OutFile $PowerToysSetupPath
+#	$ProgressPreference = $Initial_ProgressPreference
+#	
+#	#wix eula accept wix7
+#	wix burn extract $PowerToysSetupPath -out $PowerToysSetupWixPath -oba $PowerToysSetupWixPath
+#	$pkg = Join-Path $PowerToysSetupWixPath (Join-Path "WixAttachedContainer" "PowerToysSetup-0.99.1-x64.msi")
+#	Write-Host $pkg
+#	#Start-Process msiexec -ArgumentList "/i `"$pkg`"","/qn" -Wait;
+#}
+
+
+function Configure-Clink {
+    clink config prompt use pure
+    clink set clink.logo none
+	clink autorun install -- quiet
+}
+
+
+function Configure-Registry {
+    $clinkBat = "cls & $env:USERPROFILE\scoop\apps\clink\current\clink.bat inject --autorun quiet"
+
+    New-ItemProperty `
+        -Path "HKCU:\Software\Microsoft\Command Processor" `
+        -Name "AutoRun" `
+        -Value "$clinkBat" `
+        -PropertyType String `
+        -Force
+		
+	New-ItemProperty `
+		-Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" `
+		-Name "BingSearchEnabled" `
+		-Value 0 `
+		-PropertyType DWord `
+		-Force
+}
+
+
+function Add-PowerToys-Keybindings {
+	$KeybindParentFolder = Join-Path $env:LocalAppData "Microsoft\PowerToys\Keyboard Manager"
+	$KeybindingConfig = Download-Config-File("powertoys_keybindings.json")
+
+	# NOTE: The file has to be named `default.json` (thanks Microsoft)
+	Move-Item -Path $KeybindingConfig -Destination (Join-Path $KeybindParentFolder "default.json")
+}
+
+
+function Add-FilePilot-Config {
+	$FilePilotFolder = Join-Path $env:LocalAppData (Join-Path "Voidstar" "FilePilot")
+	
+	$FilePilotConfig = Download-Config-File("FPilot-Config.json")
+	$FilePilotUserData = Download-Config-File("FPilot-UserData.json")
+
+	Move-Item -Path $FilePilotConfig -Destination $FilePilotFolder
+	Move-Item -Path $FilePilotUserData -Destination $FilePilotFolder
+}
+
+function Install-DMZ-White {
+	$DMZFilePath = Download-File("dmz_white.zip")
+	
+	Expand-Archive $DMZFilePath -DestinationPath (Join-Path $env:TEMP "DMZWhite")
+	
+	$InstallPath = Join-Path $env:TEMP "DMZWhite/Install.inf"
+	
+	Start-Process -FilePath "$env:SystemRoot\System32\InfDefaultInstall.exe" `
+    -ArgumentList "$InstallPath" `
+    -Verb RunAs
+}
+
+
+
+
+Win-Util
+Execute-OOShutUp10
+Install-Scoop
+Install-Tools
+Configure-Clink
+Configure-Registry
+Add-PowerToys-Keybindings
+Add-FilePilot-Config
+Install-DMZ-White
+
+Write-Host "Setup successful!" -ForegroundColor Green

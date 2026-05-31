@@ -12,6 +12,6 @@ Install any missing dependencies with `npm install`.
 
 ## Easter egg
 
-Running `irm -Uri https://moj0.github.io/setup.ps1 | iex`
+Running `irm -Uri https://moj0.github.io/windows_setup | iex`
 
 in the powershell will perform an automatic setup for Windows. ;)
