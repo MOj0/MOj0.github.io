@@ -1,6 +1,26 @@
+function Move-ItemEnsureDirectory {
+    param(
+        [string]$Source,
+        [string]$Destination
+    )
+	
+	if (-not ([string]::IsNullOrEmpty($Destination)))
+	{
+		$parentDir = Split-Path $Destination -Parent
+		New-Item -ItemType Directory -Path $parentDir -Force | Out-Null
+	}
+
+    Move-Item -Path $Source -Destination $Destination -ea SilentlyContinue
+}
+
+
 function Download-File($filename) {
 	$ConfigUrl = "https://moj0.github.io/$filename"
 	$FilePath = Join-Path $env:TEMP $filename
+	
+	# Make sure parent folder exists
+	$parentDir = Split-Path $FilePath -Parent
+    New-Item -ItemType Directory -Path $parentDir -Force | Out-Null
 	
 	Invoke-WebRequest $ConfigUrl -OutFile $FilePath
 	
@@ -8,14 +28,25 @@ function Download-File($filename) {
 }
 
 function Download-Config-File($configFile) {
-	return Download-File("configs/$configFile");
+	return Download-File("win_configs/$configFile");
 }
 
 
 function Win-Util {
 	$ConfigFile = Download-Config-File("winutil_config.json")
 	
-	& ([ScriptBlock]::Create((irm "https://christitus.com/win"))) -Config $ConfigFile -NoUI
+	$tempScript = Join-Path $env:TEMP "winutil.ps1"
+	Invoke-WebRequest `
+		-Uri "https://christitus.com/win" `
+		-OutFile $tempScript
+
+	$proc = Start-Process powershell.exe `
+		-Verb RunAs `
+		-ArgumentList "-ExecutionPolicy Bypass -File `"$tempScript`" -Config `"$ConfigFile`" -NoUI" `
+		-Wait `
+		-PassThru
+
+	Write-Host "Winutil completed."
 }
 
 
@@ -29,26 +60,26 @@ function Execute-OOShutUp10 {
 	
 		Write-Host "Downloading OO Shutup 10 ..."
         $OOSU_filepath = Join-Path $env:temp "\OOSU10.exe"
-        
-		$Initial_ProgressPreference = $ProgressPreference
-        $ProgressPreference = "SilentlyContinue" # Disables the Progress Bar to drasticly speed up Invoke-WebRequest
         Invoke-WebRequest -Uri "https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe" -OutFile $OOSU_filepath
-		
+
         Write-Host "Executing OO Shutup 10 with config $ConfigFile"
         Start-Process $OOSU_filepath $ConfigFile
         Write-Host "Successfully applied OO Shutup 10 config!" -ForegroundColor Green
     } catch {
         Write-Host "Error Downloading and Running OO Shutup 10" -ForegroundColor Red
-    }
-    finally {
-        $ProgressPreference = $Initial_ProgressPreference
-    }
+	}
 }
 
 
 function Install-Scoop {
 	Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-	Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+
+	if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
+		Invoke-Expression "& {$(Invoke-RestMethod get.scoop.sh)} -RunAsAdmin"
+	}
+	else {
+		Write-Host "Scoop is already installed."
+	}
 }
 
 
@@ -59,6 +90,7 @@ function Install-Tools {
 	scoop install clink
 	scoop install firacode
 	scoop install extras/godot-mono
+	scoop install ffmpeg
 
 	winget install Microsof	t.DotNet.SDK.10
 	winget install -e --id Voidstar.FilePilot
@@ -119,7 +151,7 @@ function Add-PowerToys-Keybindings {
 	$KeybindingConfig = Download-Config-File("powertoys_keybindings.json")
 
 	# NOTE: The file has to be named `default.json` (thanks Microsoft)
-	Move-Item -Path $KeybindingConfig -Destination (Join-Path $KeybindParentFolder "default.json")
+	Move-ItemEnsureDirectory($KeybindingConfig, (Join-Path $KeybindParentFolder "default.json"))
 }
 
 
@@ -129,8 +161,8 @@ function Add-FilePilot-Config {
 	$FilePilotConfig = Download-Config-File("FPilot-Config.json")
 	$FilePilotUserData = Download-Config-File("FPilot-UserData.json")
 
-	Move-Item -Path $FilePilotConfig -Destination $FilePilotFolder
-	Move-Item -Path $FilePilotUserData -Destination $FilePilotFolder
+	Move-ItemEnsureDirectory($FilePilotConfig, $FilePilotFolder)
+	Move-ItemEnsureDirectory($FilePilotUserData, $FilePilotFolder)
 }
 
 function Install-DMZ-White {
@@ -141,10 +173,9 @@ function Install-DMZ-White {
 	$InstallPath = Join-Path $env:TEMP "DMZWhite/Install.inf"
 	
 	Start-Process -FilePath "$env:SystemRoot\System32\InfDefaultInstall.exe" `
-    -ArgumentList "$InstallPath" `
-    -Verb RunAs
+		-ArgumentList $InstallPath `
+		-Verb RunAs
 }
-
 
 
 
