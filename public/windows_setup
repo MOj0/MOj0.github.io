@@ -175,8 +175,20 @@ function Prompt-Install-FilePilot {
 	if ($inputValue -eq "y") {
 		winget install -e --id Voidstar.FilePilot
 		Refresh-Path
-		Start-Process "FPilot"
+		
+		Start-Process -Wait "FPilot"
+		
+		Add-FilePilot-Config
 	}
+}
+
+function Add-Godot-Exe-Env-Variable {
+	$godotKey = "GODOT4"
+	$godotExeEnv = '%USERPROFILE%\scoop\apps\godot-mono\current\godot-mono.exe'
+
+	[System.Environment]::SetEnvironmentVariable($godotKey, $godotExeEnv, 'User')
+
+	Write-Host "Added environment variable $godotKey : $godotExeEnv"
 }
 
 # NOTE: We need this: `Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser` when running??
@@ -189,8 +201,9 @@ Install-Tools
 Configure-Clink
 Configure-Registry
 Add-PowerToys-Keybindings
-Add-FilePilot-Config
 Install-DMZ-White
 Prompt-Install-FilePilot
+Add-Godot-Exe-Env-Variable
+
 
 Write-Host "Setup successful!" -ForegroundColor Green
