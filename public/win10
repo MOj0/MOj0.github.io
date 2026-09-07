@@ -81,8 +81,10 @@ function Install-Tools {
 
 	scoop install clink
 	scoop install firacode
-	scoop install extras/godot-mono
 	scoop install ffmpeg
+	scoop install extras/mpv
+	scoop install extras/godot-mono
+	scoop install extras/foobar2000
 
 	winget install Microsoft.DotNet.SDK.10
 	winget install winsetview
