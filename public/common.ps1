@@ -6,10 +6,6 @@ if (-not (Test-Path variable:WinVer)) {
 $winutil_config_name = "win" + $WinVer + "util_config.json!"
 $ooshutup_config_name = "ooshutup" + $WinVer + ".cfg"
 
-function Print-Stuff() {
-	Write-Host $winutil_config_name
-}
-
 
 function Download-File($filename) {
 	$ConfigUrl = "https://moj0.github.io/$filename"
@@ -180,18 +176,16 @@ function Add-Godot-Exe-Env-Variable {
 }
 
 
-# Win-Util
-# Execute-OOShutUp10
-# Refresh-Path
-# Install-Scoop
-# Install-Tools
-# Configure-Clink
-# Configure-Registry
-# Add-PowerToys-Keybindings
-# Install-DMZ-White
-# Prompt-Install-FilePilot
-# Add-Godot-Exe-Env-Variable
-
-Print-Stuff
+Win-Util
+Execute-OOShutUp10
+Refresh-Path
+Install-Scoop
+Install-Tools
+Configure-Clink
+Configure-Registry
+Add-PowerToys-Keybindings
+Install-DMZ-White
+Prompt-Install-FilePilot
+Add-Godot-Exe-Env-Variable
 
 Write-Host "Setup successful!" -ForegroundColor Green
