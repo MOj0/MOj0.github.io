@@ -1,5 +1,5 @@
 # NOTE: We need this: `Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser` when running??
 
-$WinVer = "10"
+$WinVer = "11"
 
 . "$PSScriptRoot\common.ps1"
