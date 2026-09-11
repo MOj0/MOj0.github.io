@@ -81,11 +81,9 @@ function Install-Tools {
 
 	scoop install clink
 	scoop install firacode
-	scoop install extras/godot-mono
 	scoop install ffmpeg
-
-	winget install Microsoft.DotNet.SDK.10
-	winget install winsetview
+	scoop install extras/mpv
+	scoop install extras/godot-mono
 }
 
 # There is a missing Windows App Runtime v1.8 when starting the *new* keyboard shortcut editor... we will use the powertoys bundled with winutil
