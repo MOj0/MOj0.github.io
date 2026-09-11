@@ -1,5 +1,6 @@
 # NOTE: We need this: `Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser` when running??
 
 $WinVer = "10"
+$CommonUrl = "https://moj0.github.io/common.ps1"
 
-. "$PSScriptRoot\common.ps1"
+. ([scriptblock]::Create((irm $CommonUrl)))
