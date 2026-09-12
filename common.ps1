@@ -3,7 +3,7 @@ if (-not (Test-Path variable:WinVer)) {
     exit
 }
 
-$winutil_config_name = "win" + $WinVer + "util_config.json!"
+$winutil_config_name = "win" + $WinVer + "util_config.json"
 $ooshutup_config_name = "ooshutup" + $WinVer + ".cfg"
 
 
@@ -85,6 +85,8 @@ function Install-Scoop {
 
 
 function Install-Tools {
+	scoop install main/git
+
     scoop bucket add nerd-fonts
 	scoop bucket add extras
 	scoop bucket add games
@@ -93,7 +95,6 @@ function Install-Tools {
 	scoop install firacode
 	scoop install ffmpeg
 
-	scoop install main/git
 	scoop install main/go
 	scoop install main/python
 	scoop install main/rust
@@ -110,6 +111,7 @@ function Install-Tools {
 	scoop install extras/paint.net
 	scoop install extras/notepadplusplus
 	scoop install extras/obs-studio
+	scoop install extras/ds4windows
 
 	scoop install games/epic-games-launcher
 }
@@ -172,17 +174,13 @@ function Install-DMZ-White {
 }
 
 
-function Prompt-Install-FilePilot {
-	$inputValue = Read-Host "Install FilePilot now? (y/n)"
-
-	if ($inputValue -eq "y") {
-		winget install -e --id Voidstar.FilePilot
-		Refresh-Path
-		
-		Start-Process -Wait "FPilot"
-		
-		Add-FilePilot-Config
-	}
+function Install-FilePilot {
+	winget install -e --id Voidstar.FilePilot
+	Refresh-Path
+	
+	Start-Process -Wait "FPilot"
+	
+	Add-FilePilot-Config
 }
 
 function Add-Godot-Exe-Env-Variable {
@@ -204,7 +202,7 @@ Configure-Clink
 Configure-Registry
 Add-PowerToys-Keybindings
 Install-DMZ-White
-Prompt-Install-FilePilot
+Install-FilePilot
 Add-Godot-Exe-Env-Variable
 
 Write-Host "Setup successful!" -ForegroundColor Green
