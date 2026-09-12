@@ -87,12 +87,31 @@ function Install-Scoop {
 function Install-Tools {
     scoop bucket add nerd-fonts
 	scoop bucket add extras
+	scoop bucket add games
 
 	scoop install clink
 	scoop install firacode
 	scoop install ffmpeg
+
+	scoop install main/git
+	scoop install main/go
+	scoop install main/python
+	scoop install main/rust
+	scoop install main/7zip
+	scoop install main/dotnet-sdk
+
 	scoop install extras/mpv
+	scoop install extras/vscode
 	scoop install extras/godot-mono
+	scoop install extras/blender
+	scoop install extras/brave
+	scoop install extras/audacity
+	scoop install extras/foobar2000
+	scoop install extras/paint.net
+	scoop install extras/notepadplusplus
+	scoop install extras/obs-studio
+
+	scoop install games/epic-games-launcher
 }
 
 function Configure-Clink {
