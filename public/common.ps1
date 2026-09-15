@@ -185,10 +185,10 @@ function Install-FilePilot {
 
 function Add-Godot-Exe-Env-Variable {
 	$godotKey = "GODOT4"
-	$godotExeEnv = '%USERPROFILE%\scoop\apps\godot-mono\current\godot-mono.exe'
+	$userprofile = [Environment]::ExpandEnvironmentVariables("%USERPROFILE%")  # We need to expand this env variable, otherwise VSCode launch won't work
+	$godotExeEnv = $userprofile + "\scoop\apps\godot-mono\current\godot-mono.exe"
 
 	[System.Environment]::SetEnvironmentVariable($godotKey, $godotExeEnv, 'User')
-
 	Write-Host "Added environment variable $godotKey : $godotExeEnv"
 }
 
