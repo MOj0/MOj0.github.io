@@ -102,7 +102,6 @@ function Install-Tools {
 	scoop install main/dotnet-sdk
 
 	scoop install extras/mpv
-	scoop install extras/vscode
 	scoop install extras/godot-mono
 	scoop install extras/blender
 	scoop install extras/brave
