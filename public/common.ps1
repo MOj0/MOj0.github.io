@@ -192,6 +192,8 @@ function Add-Godot-Exe-Env-Variable {
 }
 
 
+Write-Host "Performing setup for Windows " $WinVer
+
 Win-Util
 Execute-OOShutUp10
 Refresh-Path

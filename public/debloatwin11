@@ -1,9 +1,9 @@
 # NOTE: We need this: `Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser` when running??
 
 $WinVer = "11"
-$CommonUrl = "https://moj0.github.io/common.ps1"
+$DebloatUrl = "https://moj0.github.io/debloat.ps1"
 
-. ([scriptblock]::Create((irm $CommonUrl)))
+. ([scriptblock]::Create((irm $DebloatUrl)))
 
 # Restore old context menu (windows explorer process has to be restarted for this to be applied)
 reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
