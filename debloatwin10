@@ -1,0 +1,6 @@
+# NOTE: We need this: `Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser` when running??
+
+$WinVer = "10"
+$DebloatUrl = "https://moj0.github.io/debloat.ps1"
+
+. ([scriptblock]::Create((irm $DebloatUrl)))
