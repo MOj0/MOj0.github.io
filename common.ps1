@@ -182,6 +182,97 @@ function Install-FilePilot {
 	Add-FilePilot-Config
 }
 
+# Yoinked from: https://github.com/psygreg/autoresolvedeb/blob/main/autoresolvedeb.sh
+function Install-DaVinci-Resolve{
+	$product = "DaVinci Resolve"
+	$referid = "dfd43085ef224766b06b579ce8a6d097"
+	$siteUrl = "https://www.blackmagicdesign.com/api/support/latest-stable-version/davinci-resolve/windows"
+	$userAgent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.75 Safari/537.36"
+
+	# Get release information
+	$releaseInfoRoot = Invoke-RestMethod -Uri $siteUrl -Method Get -Headers @{
+		"User-Agent" = $userAgent
+	}
+	$releaseInfo = $releaseInfoRoot.windows
+
+	# Extract version information
+	$downloadId = $releaseInfo.downloadId
+	$releaseNum = $releaseInfo.releaseNum
+	$major = $releaseInfo.major
+	$minor = $releaseInfo.minor
+	$pkgver = "$major.$minor.$releaseNum"
+
+	if ($releaseNum -eq 0) {
+		$filever = "$major.$minor"
+	} else {
+		$filever = $pkgver
+	}
+
+	$archiveName = "DaVinci_Resolve_${filever}_Windows"
+	$archiveRunName = "DaVinci_Resolve_${filever}_Windows"
+
+	# Registration request
+	$reqJson = @{
+		firstname = "Arch"
+		lastname  = "Linux"
+		email     = "someone@archlinux.org"
+		phone     = "202-555-0194"
+		country   = "us"
+		street    = "Bowery 146"
+		state     = "New York"
+		city      = "AUR"
+		product   = $product
+	} | ConvertTo-Json -Compress
+
+	# Request the actual download URL
+	$siteUrl = "https://www.blackmagicdesign.com/api/register/us/download/$downloadId"
+
+	$response = Invoke-WebRequest `
+		-UseBasicParsing `
+		-Uri $siteUrl `
+		-Method Post `
+		-Headers @{
+			"Host"            = "www.blackmagicdesign.com"
+			"Accept"          = "application/json, text/plain, */*"
+			"Origin"          = "https://www.blackmagicdesign.com"
+			"User-Agent"      = $userAgent
+			"Referer"         = "https://www.blackmagicdesign.com/support/download/$referid/Windows"
+			"Accept-Language" = "en-US,en;q=0.9"
+		} `
+		-ContentType "application/json;charset=UTF-8" `
+		-Body $reqJson
+
+
+	$srcUrl = $response.Content
+
+	# Set the progress preference for the next Invoke-WebRequest to not print number of bytes written
+	$oldProgressPreference = $ProgressPreference
+	$ProgressPreference = 'SilentlyContinue'
+
+	Write-Host "downloading from $srcUrl"
+	Write-Host "..............................."
+
+	$archivePath = Join-Path $env:temp $archiveName
+
+	# Download the archive
+	Invoke-WebRequest `
+		-Uri $srcUrl `
+		-OutFile "$archivePath.zip"
+
+	$ProgressPreference = $oldProgressPreference
+	Write-Host "Downloaded $archivePath.zip"
+
+	# Unzip the archive
+	7z x "$archivePath.zip" "-o$archivePath" -y
+
+	# Run installer
+	Start-Process -FilePath "$archivePath\$archiveName.exe" -Wait
+
+	# Cleanup
+	Remove-Item "$archivePath.zip"
+	Remove-Item "$archivePath" -Recurse
+}
+
 function Add-Godot-Exe-Env-Variable {
 	$godotKey = "GODOT4"
 	$userprofile = [Environment]::ExpandEnvironmentVariables("%USERPROFILE%")  # We need to expand this env variable, otherwise VSCode launch won't work
@@ -204,6 +295,7 @@ Configure-Registry
 Add-PowerToys-Keybindings
 Install-DMZ-White
 Install-FilePilot
+Install-DaVinci-Resolve
 Add-Godot-Exe-Env-Variable
 
 Write-Host "Setup successful!" -ForegroundColor Green
