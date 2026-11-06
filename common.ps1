@@ -85,6 +85,8 @@ function Install-Scoop {
 
 
 function Install-Tools {
+	winget install -e --id Brave.Brave # Hopefully this works and Brave will get updated: https://github.com/microsoft/winget-pkgs/issues/179971
+
 	scoop install main/git
 
     scoop bucket add nerd-fonts
@@ -104,7 +106,6 @@ function Install-Tools {
 	scoop install extras/mpv
 	scoop install extras/godot-mono
 	scoop install extras/blender
-	scoop install extras/brave
 	scoop install extras/audacity
 	scoop install extras/foobar2000
 	scoop install extras/paint.net
